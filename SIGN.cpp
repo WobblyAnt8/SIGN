@@ -1,84 +1,43 @@
 #include "stdafx.h"
 #include "SIGN.h"
-
 using namespace std;
-
 SIGN::SIGN()
 {
-	cout << "Class SIGN Ctor" << endl;
-	cout << "Enter Name: ";
+	cout << "ctor" << endl;
+	int i = 0;
+	cout << "Enter name of the Name: ";
 	cin >> Name;
-	cout << "Enter Surname: ";
+
+	cout << "Enter name of the : ";
 	cin >> Surname;
-	cout << "Enter Sign: ";
-	cin >> Sign;
-	cout << "Enter the Date of Birth:";
-	cin >> DR[0] >> DR[1] >> DR[2];
+	cout << "Enter the SIGN:";
+	cin >> DATA;
 }
-
-SIGN::SIGN(const SIGN& P)//конструктор копирования
+SIGN :: ~SIGN()
 {
-	cout << "Copy ctor" << endl;
-
-	this->Name = P.Name;
-	this->Surname = P.Surname;
-	this->Sign = P.Sign;
-	this->DR[0] = P.DR[0];
-	this->DR[1] = P.DR[1];
-	this->DR[2] = P.DR[2];
+	cout << "dtor" << endl;
+	//free(Name);
+	//free(Surname);
 }
-
-SIGN :: ~SIGN()//деструктор SIGN
+void SIGN::show()
 {
-	cout << "SIGN dtor" << endl;
+	cout << "Name of the Name:" << Name << endl;
+	cout << "Name of the :" << Surname << endl;
+	cout << "SIGN:" << DATA << endl;
 }
-
-SIGN& SIGN::operator=(SIGN& P)
-{
-	cout << "Operator= SIGN" << endl;
-	this->Sign = P.Sign;
-	this->Name = P.Name;
-	this->Surname = P.Surname;
-	this->DR[0] = P.DR[0];
-	this->DR[1] = P.DR[1];
-	this->DR[2] = P.DR[2];
-	return *this;
-}
-
-string SIGN::getSign()
-{
-	return Sign;
-}
-
 string SIGN::getName()
 {
 	return Name;
 }
-
 string SIGN::getSurname()
 {
 	return Surname;
 }
-
-int SIGN::DD()
+void SIGN::Show()
 {
-	return DR[0];
+	cout << "Name of the :" << Surname << endl;
 }
-
-int SIGN::MM()
+void SIGN::ShowDATA()
 {
-	return DR[1];
-}
-
-int SIGN::YY()
-{
-	return DR[2];
-}
-
-void SIGN::show()//оператор вывода
-{
-	cout << "Name:" << Name << endl;
-	cout << "Surname:" << Surname << endl;
-	cout << "Sign:" << Sign << endl;
-	cout << "Date of Birth:" << DR[0] << '/' << DR[1] << '/' << DR[2] << endl;
+	cout << "SIGN:" << DATA << endl;
 }
