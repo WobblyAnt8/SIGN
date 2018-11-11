@@ -1,21 +1,22 @@
 #pragma once
 #include "SIGN.h"
 #include "stdafx.h"
-
 class Container
 {
 private:
-	SIGN * * Data;
+	SIGN** Data;
 	int size;
 public:
 	Container();
+
 	~Container();
 	Container(Container C, int value);
-	Container(int value);
-	Container& operator +=(SIGN* P);
-	Container* FindMM(int month);
-	void AlphaberSort();
 	void showContainer();
+	Container& operator ++();
+	Container& operator --();
+	string getName();
+	string getNameName();
+	void AlphaberSort();
+	bool FindMM();
 	int getSize();
-	bool isEmpty();
 };
