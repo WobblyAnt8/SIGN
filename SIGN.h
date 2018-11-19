@@ -1,29 +1,25 @@
 #pragma once
 #include "stdafx.h"
 
-
 using namespace std;
 
 class SIGN
 {
 private:
-	//char *Name = nullptr;
-	//char *surName = nullptr;
-	string Name;
-	string surName;
-	int DATA;
+	string Name;//имя
+	string Surname;//фамилия
+	string Sign;//знак зодиака
+	int DR[3];//дата рождения
 public:
 	SIGN();
-	SIGN(const SIGN*);
+	SIGN(const SIGN& P);
 	~SIGN();
-	void show();
-	void ShownameAndDATA();
+	SIGN& operator=(SIGN& P);//оператор присваивания
 	string getName();
-	string getsurName();
-	void Showname();
-	void ShowDATA();
-	int getDATA();
-	SIGN* operator=(SIGN*);
-	SIGN* operator++();
-	void SetNewObject();
+	string getSurname();
+	string getSign();
+	int DD();
+	int MM();
+	int YY();
+	void show();
 };

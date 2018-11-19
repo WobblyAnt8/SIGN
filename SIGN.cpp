@@ -2,84 +2,82 @@
 #include "SIGN.h"
 
 using namespace std;
+
 SIGN::SIGN()
 {
-	cout << "ctor" << endl;
-	int i = 0;
 	cout << "Class SIGN Ctor" << endl;
-	cout << "Enter name of the shop: ";
-	cin >> surName;
-
-	cout << "Enter name of the name: ";
+	cout << "Enter Name: ";
 	cin >> Name;
-	cout << "Enter the SIGN:";
-	cin >> DATA;
+	cout << "Enter Surname: ";
+	cin >> Surname;
+	cout << "Enter Sign: ";
+	cin >> Sign;
+	cout << "Enter the Date of Birth:";
+	cin >> DR[0] >> DR[1] >> DR[2];
 }
-SIGN::SIGN(const SIGN*)
-SIGN::SIGN(const SIGN* P)
+
+SIGN::SIGN(const SIGN& P)//конструктор копирования
 {
-	cout << "copy ctor" << endl;
-	this->surName = surName;
-	this->Name = Name;
-	this->DATA = DATA;
-	this->surName = P->surName;
-	this->Name = P->Name;
-	this->DATA = P->DATA;
+	cout << "Copy ctor" << endl;
+	this->Name = P.Name;
+	this->Surname = P.Surname;
+	this->Sign = P.Sign;
+	this->DR[0] = P.DR[0];
+	this->DR[1] = P.DR[1];
+	this->DR[2] = P.DR[2];
 }
-SIGN :: ~SIGN()
+
+SIGN :: ~SIGN()//деструктор SIGN
 {
-	cout << "dtor" << endl;
-	//free(surName);
-	//free(Name);
 	cout << "SIGN dtor" << endl;
 }
-void SIGN::show()
+
+SIGN& SIGN::operator=(SIGN& P)
 {
-	cout << "Name of the shop:" << surName << endl;
-	cout << "Name of the name:" << Name << endl;
-	cout << "SIGN:" << DATA << endl;
+	cout << "Operator= SIGN" << endl;
+	this->Sign = P.Sign;
+	this->Name = P.Name;
+	this->Surname = P.Surname;
+	this->DR[0] = P.DR[0];
+	this->DR[1] = P.DR[1];
+	this->DR[2] = P.DR[2];
+	return *this;
 }
-void SIGN::ShownameAndDATA()
-{
-	cout << "Name of the name:" << Name << endl;
-	cout << "SIGN:" << DATA << endl;
-}
-string SIGN::getsurName()
-{
-	return surName;
-}
+
 string SIGN::getName()
 {
 	return Name;
 }
-void SIGN::Showname()
+
+string SIGN::getSurname()
 {
-	cout << "Name of the name:" << Name << endl;
-}
-void SIGN::ShowDATA()
-{
-	cout << "SIGN:" << DATA << endl;
-}
-SIGN* SIGN::operator=(SIGN*)
-SIGN* SIGN::operator=(SIGN* P)
-{
-	this->Name = Name;
-	this->surName = surName;
-	this->DATA = DATA;
-	cout << "Operator=" << endl;
-	this->Name = P->Name;
-	this->surName = P->surName;
-	this->DATA = P->DATA;
-	return this;
+	return Surname;
 }
 
-void SIGN::SetNewObject()
+string SIGN::getSign()
 {
-	cout << "" << endl;
-	cout << "Enter name of the shop: ";
-	cin >> surName;
-	cout << "Enter name of the name: ";
-	cin >> Name;
-	cout << "Enter the SIGN:";
-	cin >> DATA;
+	return Sign;
+}
+
+int SIGN::DD()
+{
+	return DR[0];
+}
+
+int SIGN::MM()
+{
+	return DR[1];
+}
+
+int SIGN::YY()
+{
+	return DR[2];
+}
+
+void SIGN::show()//оператор вывода
+{
+	cout << "Name:" << Name << endl;
+	cout << "Surname:" << Surname << endl;
+	cout << "Sign:" << Sign << endl;
+	cout << "Date of Birth:" << DR[0] << '/' << DR[1] << '/' << DR[2] << endl;
 }
